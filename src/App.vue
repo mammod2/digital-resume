@@ -1,14 +1,26 @@
 <script setup>
+import { onMounted } from "vue";
+import { getBasicInfo } from "./api/gist";
 import BasicInfo from "./components/BasicInfo.vue";
+import Section from "./components/Section.vue";
+
+onMounted(async () => {
+  const { data } = await getBasicInfo();
+  console.log(data.files["resume.json"].content);
+});
 </script>
 <template>
-  <div class="bg-[url('/public/background.jpg')]">
-    <div class="h-screen flex py-12 px-10 max-w-5xl mx-auto space-x-8 p-10">
-      <section class="w-1/4 bg-opacity-20 backdrop-blur-sm p-2 text-white">
+  <div class="">
+    <div
+      class="h-screen bg-blue-200 md:flex py-12 px-10 max-w-5xl mx-auto space-x-8 p-10"
+    >
+      <section
+        class="w-1/4 bg-opacity-20 backdrop-blur-sm p-2 text-white sm:mx-auto"
+      >
         <BasicInfo />
       </section>
       <main class="w-3/4 bg-opacity-20 backdrop-blur-sm p-2">
-        <section>
+        <!-- <section>
           <h1 class="text-white text-sm bg-black w-fit pl-1 pr-2 font-semibold">
             About
           </h1>
@@ -26,7 +38,10 @@ import BasicInfo from "./components/BasicInfo.vue";
             iste vitae sed et veritatis vel ducimus. Architecto excepturi labore
             voluptatem ratione perferendis eaque non ad!
           </p>
-        </section>
+        </section> -->
+        <Section title="about">1</Section>
+        <Section title="Projects">2</Section>
+        <Section title="Work Experience">2</Section>
       </main>
     </div>
   </div>

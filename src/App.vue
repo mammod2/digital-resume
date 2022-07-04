@@ -1,47 +1,94 @@
 <script setup>
-import { onMounted } from "vue";
+import { ref, onMounted } from "vue";
 import { getBasicInfo } from "./api/gist";
+import WorkCard from "./components/WorkCard.vue";
+import EducationCard from "./components/EducationCard.vue";
 import BasicInfo from "./components/BasicInfo.vue";
 import Section from "./components/Section.vue";
 
+const aboutMeContent = ref("");
+// const projectsMeSection = ref("");
+const skills = ref("");
+const works = ref([]);
+const educations = ref("");
+const languages = ref("");
+
 onMounted(async () => {
-  const { data } = await getBasicInfo();
-  console.log(data.files["resume.json"].content);
+  const {
+    basicInfo,
+    aboutSection,
+    projectsSection,
+    skillsSection,
+    workSection,
+    educationSection,
+    myLanguages,
+  } = await getBasicInfo();
+
+  aboutMeContent.value = aboutSection.content;
+  // projectsMeSection.value = projectsSection.keywords;
+  skills.value = skillsSection;
+  works.value = workSection;
+  educations.value = educationSection;
+  languages.value = myLanguages;
 });
 </script>
 <template>
   <div class="">
     <div
-      class="h-screen bg-blue-200 md:flex py-12 px-10 max-w-5xl mx-auto space-x-8 p-10"
+      class="min-h-screen md:flex py-12 px-10 max-w-5xl mx-auto space-x-8 p-10"
     >
-      <section
-        class="w-1/4 bg-opacity-20 backdrop-blur-sm p-2 text-white sm:mx-auto"
-      >
+      <section class="w-1/4 bg-opacity-20 backdrop-blur-sm p-2 sm:mx-auto">
         <BasicInfo />
       </section>
       <main class="w-3/4 bg-opacity-20 backdrop-blur-sm p-2">
-        <!-- <section>
-          <h1 class="text-white text-sm bg-black w-fit pl-1 pr-2 font-semibold">
-            About
-          </h1>
-          <p class="text-sm px-2 py-4">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
-            molestiae explicabo modi facere deleniti voluptatum repellendus
-            earum. Quaerat dolores quasi ducimus mollitia? Quibusdam vel odit
-            eius laudantium sit corporis explicabo corrupti dolorum blanditiis
-            molestiae sequi modi dignissimos fuga deleniti, inventore dolorem
-            placeat nesciunt quam, natus facere! Suscipit fuga dolores illo
-            labore deleniti quibusdam porro necessitatibus, cupiditate
-            temporibus illum minus voluptatum est aliquid velit molestiae id.
-            Veniam labore libero natus totam. Ut tempore maiores corporis atque
-            dolorem quas nam consectetur doloremque omnis libero? Minima quam
-            iste vitae sed et veritatis vel ducimus. Architecto excepturi labore
-            voluptatem ratione perferendis eaque non ad!
+        <Section title="About">
+          <p class="text-sm">
+            {{ aboutMeContent }}
           </p>
-        </section> -->
-        <Section title="about">1</Section>
-        <Section title="Projects">2</Section>
-        <Section title="Work Experience">2</Section>
+        </Section>
+        <!-- <Section title="title" content="content">1</Section> -->
+        <Section title="Work Experience">
+          <div class="space-y-8">
+            <div v-for="(work, index) in works" :key="index">
+              <WorkCard :work-section="work" />
+            </div>
+          </div>
+        </Section>
+        <Section title="Stacks">
+          <div class="grid grid-cols-[max-content_auto] gap-4">
+            <div class="grid grid-cols-[max-content_auto] gap-4">
+              <template v-for="(skill, index) in skills" :key="index">
+                <h3 class="text-right font-bold">{{ skill.name }}</h3>
+
+                <p>{{ skill.keywords }}</p>
+                <h3 class="text-right font-bold">CSS Frameworks</h3>
+                <p>{{ skill.cssFrameworks }}</p>
+              </template>
+            </div>
+          </div>
+        </Section>
+        <Section title="Education">
+          <div>
+            <div v-for="(education, index) in educations" :key="index">
+              <EducationCard :education="education" />
+            </div>
+          </div>
+        </Section>
+
+        <Section title="Languages">
+          <div>
+            <div
+              class="inline"
+              v-for="(language, index) in languages"
+              :key="index"
+            >
+              <span class="font-bold">{{ language.language }}</span> (<span>{{
+                language.fluency
+              }}</span
+              >){{ languages.length - 1 === index ? "" : ", " }}
+            </div>
+          </div>
+        </Section>
       </main>
     </div>
   </div>

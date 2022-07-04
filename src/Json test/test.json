@@ -1,0 +1,113 @@
+{
+  "about": {
+    "title": "About",
+    "content": "Hi,  Im mohammed I have a passion for coding "
+  },
+  "projects": {
+    "github": "Fetch some projects"
+  },
+  "skills": [
+    {
+      "keywords": ["Javascript", "Vue"],
+      "cssFrameworks": ["Tailwind CSS, Bulma CSS"],
+      "level": "Intermediate",
+      "name": "Frontend"
+    }
+  ],
+
+  "works": [
+    {
+      "company": "The Hacker Collective (THC)",
+      "postion": "Frontend Developer",
+      "location": "Malaysia",
+      "website": "https://hackercollective.co/",
+      "startDate": "2021-11-25",
+      "start": {
+        "year": 2016,
+        "month": 3
+      },
+
+      "end": {
+        "year": 2017,
+        "month": 3
+      },
+      "endDate": "2022-03-1",
+      "highlights": [
+        "Mentored students and taught HTML and CSS",
+        "Implemented UI features",
+        "Worked with many projects such algobot(Algrithm trading bot) and Pathforge",
+        "Worked on UI components/framework such as storybook and Bulma css",
+        "Comunicated with the team ",
+        "Communicate with multi-disciplinary teams of developers, designers and product manager"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "institution": "Sekolah Menengah Taman Yarl",
+      "studyType": "PMR and SPM",
+      "startDate": "2012-06-04",
+      "start": {
+        "year": 2012,
+        "month": 4
+      },
+
+      "end": {
+        "year": 2015,
+        "month": 11
+      },
+
+      "result": {
+        "A": 3,
+        "B": 4
+      }
+    },
+    {
+      "institution": "TMC College",
+      "studyType": "Foundation in science",
+      "startDate": "2016-03-01",
+      "start": {
+        "year": 2016,
+        "month": 3
+      },
+
+      "end": {
+        "year": 2017,
+        "month": 3
+      },
+
+      "result": "Foundation in Science Certificate"
+    },
+    {
+      "institution": "Sunway university",
+      "studyType": "BSc (Hons) Computer Science",
+      "startDate": "2022-08-20",
+      "start": {
+        "year": 2022,
+        "month": 8
+      }
+    }
+  ],
+  "languages": [
+    {
+      "language": "Arabic",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "English",
+      "fluency": "Fluent"
+    },
+    {
+      "language": "Malay",
+      "fluency": "Intermediate"
+    },
+    {
+      "language": "German",
+      "fluency": "Basic"
+    },
+    {
+      "language": "Russian",
+      "fluency": "Basic"
+    }
+  ]
+}

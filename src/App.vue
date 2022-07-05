@@ -35,12 +35,12 @@ onMounted(async () => {
 <template>
   <div>
     <div
-      class="min-h-screen md:flex py-12 px-10 max-w-5xl mx-auto space-x-8 p-10"
+      class="min-h-screen md:flex py-12 p- md:px-10 max-w-5xl mx-auto space-x-8"
     >
       <section class="md:w-1/4 bg-opacity-20 p-2 sm:mx-auto">
         <BasicInfo />
       </section>
-      <main class="w-full md:w-3/4 bg-opacity-20 md:p-2">
+      <main class="min-w-full md:w-3/4 bg-opacity-20 md:p-2">
         <Section title="About">
           <p class="text-sm">
             {{ aboutMeContent }}

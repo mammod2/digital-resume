@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="flex flex-col justify-center items-center md:items-start">
     <h1 class="text-xl font-semibold">Mohammed Moatasem</h1>
     <h2 class="text-sm font-light text-gray-500 mt-2">Frontend developer</h2>
     <a

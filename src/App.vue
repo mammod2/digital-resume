@@ -40,7 +40,7 @@ onMounted(async () => {
       <section class="md:w-1/4 bg-opacity-20 p-2 sm:mx-auto">
         <BasicInfo />
       </section>
-      <main class="min-w-full md:w-3/4 bg-opacity-20 md:p-2">
+      <main class="min-w-full md:w-3/4 bg-opacity-20 pr-6">
         <Section title="About">
           <p class="text-sm">
             {{ aboutMeContent }}
